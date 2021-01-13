@@ -1,0 +1,39 @@
+Reclamaciones registradas:
+
+	• iss: de la palabra emisor. Una cadena que distingue entre mayúsculas y minúsculas o URI que identifica de forma exclusiva a la parte
+que emitió el JWT. Su interpretación es específica de la aplicación (no existe una autoridad central
+gestión de emisores).
+
+	• sub: de la palabra sujeto. Una cadena que distingue entre mayúsculas y minúsculas o URI que identifica de forma exclusiva a la parte
+sobre el que este JWT lleva información. En otras palabras, las afirmaciones contenidas en este JWT
+son declaraciones sobre esta fiesta. El JWT especifica que esta afirmación debe ser única en
+el contexto del emisor o, en los casos en que eso no sea posible, globalmente único. Manejo de
+esta afirmación es específica de la aplicación.
+
+	• aud: de la palabra audiencia. Ya sea una única cadena que distingue entre mayúsculas y minúsculas o URI o una matriz de tales
+valores que identifican de forma única a los destinatarios previstos de este JWT. En otras palabras, cuando esto
+reclamo está presente, la parte que lee los datos en este JWT debe encontrarse en el reclamo de auditoría o
+ignorar los datos contenidos en el JWT. Como en el caso de las reclamaciones iss y sub, esta reclamación
+es específico de la aplicación.
+
+	• exp: a partir de la palabra expiración (tiempo). Un número que representa una fecha y hora específicas en el
+formato "segundos desde época" según lo definido por POSIX6
+. Esta afirmación establece el momento exacto de que este JWT se considera inválido. Algunas implementaciones pueden permitir cierto sesgo
+entre relojes (considerando que este JWT es válido durante unos minutos después de la expiración fecha).
+
+	• nbf: desde no antes (tiempo). Lo opuesto al reclamo exp. Un número que representa un
+fecha y hora en el formato "segundos desde época" según lo definido por POSIX7 . Este reclamo establece
+el momento exacto a partir del cual este JWT se considera válido. La hora y fecha actuales deben
+ser igual o posterior a esta fecha y hora. Algunas implementaciones pueden permitir cierto
+sesgar.
+
+	• iat: de emitido a las (hora). Un número que representa una fecha y hora específicas (en el mismo
+formato como exp y nbf) en el que se emitió este JWT.
+
+	• jti: de JWT ID. Una cadena que representa un identificador único para este JWT. Esta afirmación puede ser
+se utiliza para diferenciar los JWT con otro contenido similar (evitando repeticiones, por ejemplo). Está
+hasta la implementación para garantizar la singularidad.
+Como habrás notado, todos los nombres son cortos. Esto cumple con uno de los requisitos de diseño:
+para mantener los JWT lo más pequeños posible.
+Cadena o URI: de acuerdo con la especificación JWT, una URI se interpreta como cualquier cadena que contenga
+un personaje. Depende de la implementación proporcionar valores válidos.
